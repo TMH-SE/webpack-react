@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Gelasio';
+  src: url('./assets/fonts/Gelasio-Regular.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+h1  {
+  font-family: 'Gelasio';
+  color: green;
+}
