@@ -1,28 +1,66 @@
 import React from 'react'
-import './index.css'
-import './index.scss'
-import './index.less'
-import src from './assets/images/picture1.png'
-import { hot, setConfig } from 'react-hot-loader'
+import SignIn from './pages/signIn'
+import { MinimalLayout, MainLayout } from './layouts'
+import { Editor } from './components'
+import { Card, Avatar, Row, Typography } from 'antd'
+import {
+  SettingOutlined,
+  EditOutlined,
+  EllipsisOutlined,
+} from '@ant-design/icons'
+
+const { Meta } = Card
 
 const App = () => {
-  console.log(process.env.PORT)
   return (
-    <div>
-      <h1>Hello Green</h1>
-      <h2>Hello Red</h2>
-      <h3>Hello Blue</h3>
-      <h4>no no</h4>
-      <img height={500} src={src} />
-    </div>
+    <MainLayout>
+      <Typography.Title level={1}>New post</Typography.Title>
+      <Editor />
+      <Card
+        cover={
+          <img
+            alt='example'
+            src='https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
+          />
+        }
+        style={{ maxWidth: 400, marginTop: 16 }}
+        actions={[
+          <SettingOutlined key='setting' />,
+          <EditOutlined key='edit' />,
+          <EllipsisOutlined key='ellipsis' />,
+        ]}>
+        <Meta
+          avatar={
+            <Avatar src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' />
+          }
+          title='Card title'
+          description='This is the description'
+        />
+      </Card>
+      <br />
+      <Card
+        cover={
+          <img
+            alt='example'
+            src='https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
+          />
+        }
+        style={{ maxWidth: 450, marginTop: 16 }}
+        actions={[
+          <SettingOutlined key='setting' />,
+          <EditOutlined key='edit' />,
+          <EllipsisOutlined key='ellipsis' />,
+        ]}>
+        <Meta
+          avatar={
+            <Avatar src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' />
+          }
+          title='Card title'
+          description='This is the description'
+        />
+      </Card>
+    </MainLayout>
   )
 }
 
-setConfig({
-  ignoreSFC: !!ReactDOM.setHotElementComparator,
-  pureSFC: true,
-  pureRender: true,
-  reloadHooks: false
-})
-
-export default hot(App)
+export default App
